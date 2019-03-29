@@ -2,6 +2,47 @@
 var zjshopmoncoffcepb;  //整家店铺当月咖啡排班次数  从考勤里面取 不带参
 
 
+//实时监测input框输入值
+// function OnInput (event) {
+//     console.log("The new content: " + event.target.value);
+//     var inputchild = event.srcElement;
+//     var inputparent = inputchild.parentNode;
+//     console.log(inputchild);
+//     console.log(inputparent);
+//     console.log(inputparent.parentNode.childNodes); 
+//     var childlist = inputparent.parentNode.childNodes;
+//     var childtwo = document.getElementById("test").childNodes;
+
+//     //    //首先判断输入的值是否>=0  
+//     //    var thisval = parseFloat(event.target.value);
+//     //    thisval = thisval.replace(/^$|([^\d|.])/g, ''); //除小数点和数字可以 剩下都不行
+//     //    var  chengvalue = 0;
+//     //    console.log(typeof thisval);
+//     //    if(thisval)
+//     //    {
+//     //      //这种数据太错乱了 不好监视  在下面的话用一个变量存储每个check后面input的值 相加大于1的时候就清空
+//     //      var zhiwei = $("#tab1 tr.rowappend"+i).find('td').eq(1).find("input").val();
+//     //      if(zhiwei == "区域店经理" && thisval > 0.3 && thisval<1)
+//     //      {
+//     //          alert("区域店长可填写分配比例不能超过0.3");
+//     //          $(this).val("");
+//     //      }else if(zhiwei == "店长" && thisval > 0.6 && thisval<1)
+//     //      {               
+//     //          alert("店长可填写分配比例不能超过0.6");
+//     //          $(this).val("");
+//     //      }
+//     //    }
+//     //    //如果为负数
+//     //    else  
+//     //    {
+//     //      $("#tab1 tr.rowappend"+i).find('td').eq(19).find("input").val(""); //清空掉它输入的值
+//     //    }
+
+
+
+// }
+
+
 
 // 调用方法：（后面的s为显示小数点后几位，比如s为0时显示整数，2为显示两位小数，比如2.00）
 
@@ -853,41 +894,91 @@ for(let i = 0;i<5;i++ )
            //为那一列添加input输入框
            else if(j == 19)
            {
-               $("#tab1 tr.rowappend"+i).append("<td class='inpu"+j+"'><input type='text'     value = '' placeholder='请输入分配比例' style='margin:2px 10px 2px 10px'></td>'"+j+"'</td>");
+
+
+            
+            //    $("#tab1 tr.rowappend"+i).append("<td class='inpu"+j+"'><input type='text'     value = '' placeholder='请输入分配比例' style='margin:2px 10px 2px 10px'></td>'"+j+"'</td>");
                
-               //事实监听每个input框内的值
+            //    //事实监听每个input框内的值
 
             //    $("#tab1 tr.rowappend"+i).find('td').eq(19).find("input").trigger("propertychange");
 
-               $("#tab1 tr.rowappend"+i).find('td').eq(19).find("input").bind('input onpropertychange', function() {
+            //    $("#tab1 tr.rowappend"+i).find('td').eq(19).find("input").bind('input onpropertychange', function() {
 
-                  console.log($(this).val());
-                  //首先判断输入的值是否>=0  
-                  var thisval = $(this).val().trim();
-                  thisval = thisval.replace(/^$|([^\d|.])/g, ''); //除小数点和数字可以 剩下都不行
-                  var  chengvalue = 0;
-                  console.log(typeof thisval);
-                  if(thisval)
-                  {
-                    //这种数据太错乱了 不好监视  在下面的话用一个变量存储每个check后面input的值 相加大于1的时候就清空
-                    var zhiwei = $("#tab1 tr.rowappend"+i).find('td').eq(1).find("input").val();
-                    if(zhiwei == "区域店经理" && thisval > 0.3 && thisval<1)
-                    {
-                        alert("区域店长可填写分配比例不能超过0.3");
-                        $(this).val("");
-                    }else if(zhiwei == "店长" && thisval > 0.6 && thisval<1)
-                    {               
-                        alert("店长可填写分配比例不能超过0.6");
-                        $(this).val("");
-                    }
-                  }
-                  //如果为负数
-                  else  
-                  {
-                    $("#tab1 tr.rowappend"+i).find('td').eq(19).find("input").val(""); //清空掉它输入的值
-                  }
-               });
+            //       console.log($(this).val());
+            //       //首先判断输入的值是否>=0  
+            //       var thisval = $(this).val().trim();
+            //       thisval = thisval.replace(/^$|([^\d|.])/g, ''); //除小数点和数字可以 剩下都不行
+            //       var  chengvalue = 0;
+            //       console.log(typeof thisval);
+            //       if(thisval)
+            //       {
+            //         //这种数据太错乱了 不好监视  在下面的话用一个变量存储每个check后面input的值 相加大于1的时候就清空
+            //         var zhiwei = $("#tab1 tr.rowappend"+i).find('td').eq(1).find("input").val();
+            //         if(zhiwei == "区域店经理" && thisval > 0.3 && thisval<1)
+            //         {
+            //             alert("区域店长可填写分配比例不能超过0.3");
+            //             $(this).val("");
+            //         }else if(zhiwei == "店长" && thisval > 0.6 && thisval<1)
+            //         {               
+            //             alert("店长可填写分配比例不能超过0.6");
+            //             $(this).val("");
+            //         }
+            //       }
+            //       //如果为负数
+            //       else  
+            //       {
+            //         $("#tab1 tr.rowappend"+i).find('td').eq(19).find("input").val(""); //清空掉它输入的值
+            //       }
+            //    });
+
+            //    //ie版本的实时监听
+
+            
+            //测试
+                      
+            $("#tab1 tr.rowappend"+i).append("<td class='inpu"+j+"'><input type='text'  name='bl'   value = '' placeholder='请输入分配比例' style='margin:2px 10px 2px 10px'></td>'"+j+"'</td>");
                
+            //    //事实监听每个input框内的值
+
+            //    $("#tab1 tr.rowappend"+i).find('td').eq(19).find("input").trigger("propertychange");
+
+            //    $("#tab1 tr.rowappend"+i).find('td').eq(19).find("input").bind('input OnInput', function() {
+
+            //       //首先判断输入的值是否>=0  
+            //       var thisval = $(this).val().trim(); //当前输入框内的值
+            //       thisval = thisval.replace(/^$|([^\d|.])/g, ''); //除小数点和数字可以 剩下都不行
+            //       var  chengvalue = 0;
+            //       console.log(thisval);
+            //       if(thisval)
+            //       {
+                  
+
+            //         //这种数据太错乱了 不好监视  在下面的话用一个变量存储每个check后面input的值 相加大于1的时候就清空
+            //         // var zhiwei = $("#tab1 tr.rowappend"+i).find('td').eq(1).find("input").val();
+
+            //         //职位 
+            //         var zhiwei = $("#tab1 tr.rowappend"+i).find("td").eq(1).find("input").val();
+            //         console.log(zhiwei);
+            //         if(zhiwei == "区域店经理" && thisval > 0.3 && thisval<1)
+            //         {
+            //             alert("区域店长可填写分配比例不能超过0.3");
+            //             $(this).val("");
+            //         }else if(zhiwei == "店长" && thisval > 0.6 && thisval<1)
+            //         {               
+            //             alert("店长可填写分配比例不能超过0.6");
+            //             $(this).val("");
+            //         }
+            //       }
+            //       //如果为负数
+            //       else  
+            //       {
+            //         $("#tab1 tr.rowappend"+i).find('td').eq(19).find("input").val(""); //清空掉它输入的值
+            //       }
+            //    });
+
+
+
            }
            //门店奖金包分配金额
            else if(j == 20)
@@ -972,7 +1063,6 @@ $(function() {
          }
          else //下面有值也选中了  上面是没值想选中
          {  
-                debugger
                 //如果选中那么要进行选中的比例相加是否大于1的计算 将选中行中分配比例的的值相加 如果大于1 就清空 店长不超过0.6 区经不超过0.3
                 //比例的值要相加都小于1 下面的才可以计算总和
                 //首先我们要先判断 店长不超过0.6 区域经理不超过0.3  check的所有行的分配比例相加不大于1
@@ -1001,7 +1091,7 @@ $(function() {
                         sefenpeibili = $(this).parent().nextAll().eq(0).find("input").val();
                     }
                     console.log("check");
-                    console.log(sefenpeibili);
+
                     
            
                     //当勾选时进行店铺金额的计算  比例*可包分配金额
@@ -1074,7 +1164,72 @@ $(function() {
 
     //分配比例
 
-    
+    $("input[name=bl]").bind('input OnInput',function(){
+        var val = $(this).val().trim();
+        val = val.replace(/^$|([^\d|.])/g, ''); //回去改下正则表达式 看下数据是否按公式在跑
+        console.log(val)
+        console.log($(this).parent().parent().find("td").eq(1).find("input").val());
+
+        var  chengvalue = 0;
+            if(val)
+                  {
+                  
+                    //这种数据太错乱了 不好监视  在下面的话用一个变量存储每个check后面input的值 相加大于1的时候就清空
+                    // var zhiwei = $("#tab1 tr.rowappend"+i).find('td').eq(1).find("input").val();
+
+                    //职位 
+                    var  zhiwei = $(this).parent().parent().find("td").eq(1).find("input").val()
+                    console.log(zhiwei);
+                    if(zhiwei == "区域店经理" && val > 0.3 && val<1)
+                    {
+                        alert("区域店长可填写分配比例不能超过0.3");
+                        $(this).val("");
+                    }else if(zhiwei == "店长" && val > 0.6 && val<1)
+                    {               
+                        alert("店长可填写分配比例不能超过0.6");
+                        $(this).val("");
+                    }
+                  }
+                  //如果为负数
+                  else  
+                  {
+                     $(this).parent().parent().find('td').eq(19).find("input").val(""); //清空掉它输入的值
+                  }
+
+
+            //       thisval = thisval.replace(/^$|([^\d|.])/g, ''); //除小数点和数字可以 剩下都不行
+            //       var  chengvalue = 0;
+            //       console.log(thisval);
+            //       if(thisval)
+            //       {
+                  
+
+            //         //这种数据太错乱了 不好监视  在下面的话用一个变量存储每个check后面input的值 相加大于1的时候就清空
+            //         // var zhiwei = $("#tab1 tr.rowappend"+i).find('td').eq(1).find("input").val();
+
+            //         //职位 
+            //         var zhiwei = $("#tab1 tr.rowappend"+i).find("td").eq(1).find("input").val();
+            //         console.log(zhiwei);
+            //         if(zhiwei == "区域店经理" && thisval > 0.3 && thisval<1)
+            //         {
+            //             alert("区域店长可填写分配比例不能超过0.3");
+            //             $(this).val("");
+            //         }else if(zhiwei == "店长" && thisval > 0.6 && thisval<1)
+            //         {               
+            //             alert("店长可填写分配比例不能超过0.6");
+            //             $(this).val("");
+            //         }
+            //       }
+            //       //如果为负数
+            //       else  
+            //       {
+            //         $("#tab1 tr.rowappend"+i).find('td').eq(19).find("input").val(""); //清空掉它输入的值
+            //       }
+
+
+
+
+    })
 
      
 });
@@ -1083,3 +1238,11 @@ $(function() {
 
 
 
+
+//先要为这每一个请输入分配比例加一个唯一的标识 然后抓取父元素往前抓
+
+// $("table input[placeholder='请输入分配比例']").bind('input OnInput',function (){
+//     var val =$(this).val();
+//     console.log(val)
+//     console.log($(this).parent().parent().find("td").eq(1).find("input").val())
+// })
