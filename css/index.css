@@ -1,0 +1,52 @@
+table
+{
+    font-size: 12px;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+table tr td 
+{
+    border: 1px solid black;
+    white-space: nowrap;
+}
+#tab1
+{
+    width: 1000px;
+    height: 300px;
+    margin: 0 auto;
+    margin-top: 15px;
+}
+.title td {
+    text-align: center;
+    background: #9BC2E6;
+}
+.row1,.row2,.row3,.row4,.row5 
+{
+    height: 45px;
+}
+.row1 td,.row2 td,.row3 td,.row4 td,.row5 td 
+{
+    text-align: center;
+}
+.row6,.row7,.row8  {
+    height: 47px;
+}
+.row7 td,.row8 td
+{
+    padding-left: 3px;
+}
+
+.row5 td {
+    text-align: center;
+    background: #ddebf7;
+}
+.row6 td {
+    background:#ddebf7;
+    padding: 3px;
+}
+
+.row9
+{
+    height: 45px;
+    background: #9BC2E6;
+}
